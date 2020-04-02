@@ -1,14 +1,16 @@
 package algorithms.mazeGenerators;
-
+import java.util.Random;
 import algorithms.mazeGenerators.AMazeGenerator;
 import algorithms.mazeGenerators.Maze;
+import javafx.geometry.Pos;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.*;
 public class MyMazeGenerator extends AMazeGenerator {
-    ArrayList<int[]> listOfWalls = new ArrayList<int[]>();
-    //ArrayList<int[]> listOfCells = new ArrayList<int[]>();
     public Maze generate(int row, int col) {
+
+        ArrayList<Position> listOfWalls = new ArrayList<Position>();
         EmptyMazeGenerator emptyMaze = new EmptyMazeGenerator();
         Maze myMaze = emptyMaze.generate(row, col);
         for (int i = 0; i < row; i++) {
@@ -16,180 +18,14 @@ public class MyMazeGenerator extends AMazeGenerator {
                 myMaze.setCellValue(i, j, 1);
             }
         }
-        final Random random = new Random();
-        int x = random.nextInt(col);
-        int y = random.nextInt(row);
-        while(x==0 || x==row || y==0 || y==col) {
-            while(x%2==0){
-                x= random.nextInt(col);
-            }
-            while(y%2==0){
-                y=random.nextInt(row);
-            }
-        }
 
-        myMaze.setCellValue(x, y, 0);
-        itertiv(x, y ,myMaze);
+        Position startPos=myMaze.chooseStartPosition();
+        myMaze.setCellValue(startPos.getRow(), startPos.getCol(), 9);
+        myMaze=iterative(startPos.getRow(), startPos.getCol() ,myMaze);
         return myMaze;
     }
 
 
-    public boolean isCellWall(Maze m, int row, int col,int addRow,int addCol) {
-        if (m.getCellValue(row+addRow, col+addCol) == 1) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isRightCellWall(Maze m, int row, int col) {
-        if (m.getCellValue(row, col+1) == 1) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isLeftCellWall(Maze m, int row, int col) {
-        if (m.getCellValue(row, col-1) == 1) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isUpCellWall(Maze m, int row, int col) {
-        if (m.getCellValue(row-1, col) == 1) {
-            return true;
-        }
-        return false;
-    }
-    public boolean isDownCellWall(Maze m, int row, int col) {
-        if (m.getCellValue(row+1, col) == 1) {
-            return true;
-        }
-        return false;
-    }
-
-    public void addToListOfWalls(Maze m, int row, int col) {
-        if(row==0) {
-            if (col == 0) {
-                if (isRightCellWall(m, row, col)) {
-                    int[] tempWall = {row, col + 1};
-                    listOfWalls.add(tempWall);
-                }
-                if (isDownCellWall(m, row, col)) {
-                    int[] tempWall = {row + 1, col};
-                    listOfWalls.add(tempWall);
-                }
-            }
-            if (col == m.getCol()) {
-                if (isLeftCellWall(m, row, col)) {
-                    int[] tempWall = {row, col - 1};
-                    listOfWalls.add(tempWall);
-                }
-                if (isDownCellWall(m, row, col)) {
-                    int[] tempWall = {row + 1, col};
-                    listOfWalls.add(tempWall);
-                }
-            } else {
-                if (isRightCellWall(m, row, col)) {
-                    int[] tempWall = {row, col + 1};
-                    listOfWalls.add(tempWall);
-                }
-                if (isDownCellWall(m, row, col)) {
-                    int[] tempWall = {row + 1, col};
-                    listOfWalls.add(tempWall);
-                }
-                if (isLeftCellWall(m, row, col)) {
-                    int[] tempWall = {row, col - 1};
-                    listOfWalls.add(tempWall);
-                }
-            }
-        }
-        if(row==m.getRow()){
-            if(col==0) {
-                if (isRightCellWall(m, row, col)) {
-                    int[] tempWall = {row, col + 1};
-                    listOfWalls.add(tempWall);
-                }
-                if (isUpCellWall(m, row, col)) {
-                    int[] tempWall = {row - 1, col};
-                    listOfWalls.add(tempWall);
-                }
-            }
-            if(col==m.getCol()) {
-                if (isLeftCellWall(m, row, col)) {
-                    int[] tempWall = {row, col - 1};
-                    listOfWalls.add(tempWall);
-                }
-                if (isUpCellWall(m, row, col)) {
-                    int[] tempWall = {row - 1, col};
-                    listOfWalls.add(tempWall);
-                }
-                else{
-                    if (isLeftCellWall(m, row, col)) {
-                        int[] tempWall = {row, col - 1};
-                        listOfWalls.add(tempWall);
-                    }
-                    if (isUpCellWall(m, row, col)) {
-                        int[] tempWall = {row - 1, col};
-                        listOfWalls.add(tempWall);
-                    }
-                    if(isRightCellWall(m,row,col)){
-                        int [] tempWall={row,col+1};
-                        listOfWalls.add(tempWall);
-                    }
-                }
-            }
-        }
-        if(col==0){
-            if (isUpCellWall(m, row, col)) {
-                int[] tempWall = {row - 1, col};
-                listOfWalls.add(tempWall);
-            }
-            if(isRightCellWall(m,row,col)){
-                int [] tempWall={row,col+1};
-                listOfWalls.add(tempWall);
-            }
-            if (isDownCellWall(m, row, col)) {
-                int[] tempWall = {row + 1, col};
-                listOfWalls.add(tempWall);
-            }
-        }
-        if(col==m.getCol()){
-            if (isUpCellWall(m, row, col)) {
-                int[] tempWall = {row - 1, col};
-                listOfWalls.add(tempWall);
-            }
-            if (isDownCellWall(m, row, col)) {
-                int[] tempWall = {row + 1, col};
-                listOfWalls.add(tempWall);
-            }
-            if (isLeftCellWall(m, row, col)) {
-                int[] tempWall = {row, col - 1};
-                listOfWalls.add(tempWall);
-            }
-        }
-        else{
-            if (isUpCellWall(m, row, col)) {
-                int[] tempWall = {row - 1, col};
-                listOfWalls.add(tempWall);
-            }
-            if (isDownCellWall(m, row, col)) {
-                int[] tempWall = {row + 1, col};
-                listOfWalls.add(tempWall);
-            }
-            if (isLeftCellWall(m, row, col)) {
-                int[] tempWall = {row, col - 1};
-                listOfWalls.add(tempWall);
-            }
-            if(isRightCellWall(m,row,col)){
-                int [] tempWall={row,col+1};
-                listOfWalls.add(tempWall);
-            }
-        }
-    }
-    public void iterate(int x,int y){
-
-    }
     //random direction
     public Integer[] generateRandomDirections() {
         ArrayList<Integer> randoms = new ArrayList<Integer>();
@@ -198,85 +34,204 @@ public class MyMazeGenerator extends AMazeGenerator {
         Collections.shuffle(randoms);
         return randoms.toArray(new Integer[4]);
     }
-    public void itertiv(int r, int c ,Maze maze) {
+    public Maze iterative(int r, int c , Maze maze) {
+        int cnt=0;
         // 4 random directions
-        Stack<Integer[]> s = new Stack<Integer[]>();
-        Integer[] tempPoint={r,c};
-        s.push(tempPoint);
+        boolean flagFirst=true;
+        Stack<Position> s = new Stack<Position>();
+        Position tempPos = new Position(r,c);
+        //maze.setCellValue(r,c,0);
 
+        //flagFirst=false;
+
+        s.push(tempPos);
+        s.pop();
+        maze.setCellValue(r, c + 1, 0);
+        Position tempPosOne=new Position(r,c+1);
+        s.push(tempPosOne);
+        Position tempPosTwo=new Position(r,c+2);
+        maze.setCellValue(r,c+2,0);
+        s.push(tempPosTwo);
+//        maze.print();
+//        System.out.println("----------------");
+        r=s.peek().getRow();
+        c=s.peek().getCol();
         while(!s.isEmpty()) {
-            boolean flag = false;
+
+//            if(flagFirst){
+//                s.pop();
+//                flagFirst=false;
+//            }
+            boolean upFlag = false;
+            boolean downFlag = false;
+            boolean rightFlag = false;
+            boolean leftFlag = false;
+
+
             Integer[] randDirs = generateRandomDirections();
             // Examine each direction
+//            r=s.peek().getRow();
+//            c=s.peek().getCol();
 
-            for (int i = 0; i < randDirs.length; i++) {
+
+
+            for (int i = 0; i < randDirs.length  ; i++) {
 
                 switch (randDirs[i]) {
 
                     case 1: // Up
                         //　Whether 2 cells up is out or not
-                        if (r - 2 <= 0)
+                        if (r - 2 <= 0){
+                            upFlag = true;
                             continue;
+                        }
+
                         if (maze.getCellValue(r - 2, c) != 0) {
                             maze.setCellValue(r - 2, c, 0);
-                            Integer[] tempPoint1={r-2,c};
-                            s.push(tempPoint1);
-                            maze.setCellValue(r - 1, c, 0);
-                            Integer[] tempPoint2={r-1,c};
-                            s.push(tempPoint2);
-                            flag=true;
 
+                            Position tempPos2=new Position(r-1,c);
+                            maze.setCellValue(r-1,c,0);
+                            s.push(tempPos2);
+                            Position tempPos1=new Position(r-2,c);
+                            maze.setCellValue(r-2,c,0);
+                            s.push(tempPos1);
+                            r=s.peek().getRow();
+                            c=s.peek().getCol();
+                            upFlag = false;
+                            downFlag = false;
+                            rightFlag = false;
+                            leftFlag = false;
+//                            System.out.println("up :"+cnt);
+//                            cnt++;
+//                            System.out.println(tempPos1.toString());
+//                            System.out.println(tempPos2.toString());
+//                            maze.print();
+//                            System.out.println("----------------");
+                            break;
                         }
-                        break;
+                        upFlag = true;
                     case 2: // Right
                         // Whether 2 cells to the right is out or not
-                        if (c + 2 >= maze.getCol() - 1)
+                        if (c + 2 >= maze.getCol() - 1) {
+                            rightFlag =true;
                             continue;
-                        if (maze.getCellValue(r, c + 2) != 0) {
-                            maze.setCellValue(r, c + 2, 0);
-                            Integer[] tempPoint1={r,c+2};
-                            s.push(tempPoint1);
-                            maze.setCellValue(r, c + 1, 0);
-                            Integer[] tempPoint2={r,c+1};
-                            s.push(tempPoint1);
-                            flag=true;
                         }
-                        break;
+                        if (maze.getCellValue(r, c + 2) != 0) {
+
+                            maze.setCellValue(r, c + 1, 0);
+                            Position tempPos2=new Position(r,c+1);
+
+                            s.push(tempPos2);
+
+                            Position tempPos1=new Position(r,c+2);
+                            maze.setCellValue(r,c+2,0);
+                            s.push(tempPos1);
+                            r=s.peek().getRow();
+                            c=s.peek().getCol();
+                            upFlag = false;
+                            downFlag = false;
+                            rightFlag = false;
+                            leftFlag = false;
+//                            System.out.println("right :"+cnt);
+//                            cnt++;
+//                            System.out.println(tempPos1.toString());
+//                            System.out.println(tempPos2.toString());
+//                            maze.print();
+//                            System.out.println("----------------");
+                            break;
+                        }
+                        rightFlag =true;
+
+
                     case 3: // Down
                         // Whether 2 cells down is out or not
-                        if (r + 2 >= maze.getRow() - 1)
+                        if (r + 2 >= maze.getRow() - 1) {
+                            downFlag = true;
                             continue;
-                        if (maze.getCellValue(r + 2, c) != 0) {
-                            maze.setCellValue(r + 2, c, 0);
-                            Integer[] tempPoint1={r+2,c};
-                            s.push(tempPoint1);
-                            maze.setCellValue(r + 1, c, 0);
-                            Integer[] tempPoint2={r+1,c};
-                            s.push(tempPoint1);
-                            flag=true;
                         }
-                        break;
+                        if (maze.getCellValue(r + 2, c) != 0) {
+
+
+                            Position tempPos2=new Position(r+1,c);
+                            maze.setCellValue(r+1,c,0);
+                            s.push(tempPos2);
+
+                            Position tempPos1=new Position(r+2,c);
+                            maze.setCellValue(r+2,c,0);
+                            s.push(tempPos1);
+                            r=s.peek().getRow();
+                            c=s.peek().getCol();
+                            upFlag = false;
+                            downFlag = false;
+                            rightFlag = false;
+                            leftFlag = false;
+//                            System.out.println("down :"+cnt);
+//                            cnt++;
+//                            System.out.println(tempPos1.toString());
+//                            System.out.println(tempPos2.toString());
+//                            maze.print();
+//                            System.out.println("----------------");
+                            break;
+                        }
+                        downFlag = true;
+                        //flag=true;
                     case 4: // Left
                         // Whether 2 cells to the left is out or not
-                        if (c - 2 <= 0)
+                        if (c - 2 <= 0){
+                            leftFlag = true;
                             continue;
-                        if (maze.getCellValue(r, c - 2) != 0) {
-                            maze.setCellValue(r, c - 2, 0);
-                            Integer[] tempPoint1={r,c-2};
-                            s.push(tempPoint1);
-                            maze.setCellValue(r, c - 1, 0);
-                            Integer[] tempPoint2={r,c-2};
-                            s.push(tempPoint1);
-                            flag=true;
                         }
-                        break;
+
+                        if (maze.getCellValue(r, c - 2) != 0) {
+
+
+                            Position tempPos2=new Position(r,c-1);
+                            maze.setCellValue(r,c-1,0);
+                            s.push(tempPos2);
+
+                            Position tempPos1=new Position(r,c-2);
+                            maze.setCellValue(r,c-2,0);
+                            s.push(tempPos1);
+                            r=s.peek().getRow();
+                            c=s.peek().getCol();
+                            upFlag = false;
+                            downFlag = false;
+                            rightFlag = false;
+                            leftFlag = false;
+//                            System.out.println("left :"+cnt);
+//                            cnt++;
+//                            System.out.println(tempPos1.toString());
+//                            System.out.println(tempPos2.toString());
+//                            maze.print();
+//                            System.out.println("----------------");
+                            break;
+                        }
+                        leftFlag = true;
+                        //flag=true;
                 }
             }
-            if(flag=false){
-                s.pop();
+            if(downFlag&&upFlag&&rightFlag&&leftFlag){
+                if(!s.isEmpty()){
+                    s.pop();
+                    s.pop();
+                    if(!s.isEmpty()) {
+                        r = s.peek().getRow();
+                        c = s.peek().getCol();
+                    }
+                }
+                else{
+                    break;
+                }
             }
-
         }
+       // maze.print();
+        Random rand =new Random();
+        Position goal = new Position(rand.nextInt(maze.getRow()), rand.nextInt(maze.getCol()));
 
+        while (goal.equals(maze.getStartPosition()) || maze.getCellValue(goal.getRow(),goal.getCol())==1){
+            goal = new Position(rand.nextInt(maze.getRow()), rand.nextInt(maze.getCol()));
+        }
+        maze.setGoalPosition(goal.getRow(),goal.getCol(),8);
+        return maze;
     }
 }

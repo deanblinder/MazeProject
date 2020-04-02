@@ -2,7 +2,7 @@ package algorithms.mazeGenerators;
 
 import algorithms.mazeGenerators.Maze;
 import java.lang.Math;
-public class SimpleMazeGenerator {
+public class SimpleMazeGenerator extends AMazeGenerator {
     public Maze genarate(int row, int col) {
         int rand;
         EmptyMazeGenerator emptyMaze=new EmptyMazeGenerator();

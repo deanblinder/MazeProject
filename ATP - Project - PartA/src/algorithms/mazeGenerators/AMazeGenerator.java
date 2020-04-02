@@ -6,7 +6,7 @@ public abstract class AMazeGenerator implements IMazeGenerator {
        long start = System.currentTimeMillis();
        generate(row,col);
        long end = System.currentTimeMillis();
-       return end-start;
+       return (end-start);
     }
     public Maze generate(int row,int col) {
 
