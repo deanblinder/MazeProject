@@ -1,7 +1,5 @@
 package algorithms.mazeGenerators;
 
-import javafx.geometry.Pos;
-
 import java.util.Random;
 
 public class Maze {
@@ -24,6 +22,7 @@ public class Maze {
     }
 
     public Position getStartPosition() {
+
         return startPosition;
     }
 
@@ -39,9 +38,8 @@ public class Maze {
 
     public Position chooseStartPosition(){
         final Random random = new Random();
-        int c = 0;
+        int c = random.nextInt(col-1)+1;
         int r = random.nextInt(row-1)+1;
-        //Position startPosition = new Position(r,c);
         startPosition.setCol(c);
         startPosition.setRow(r);
         //setCellValue(startPosition.getCol(),startPosition.getRow(),8);
@@ -50,13 +48,10 @@ public class Maze {
     }
     public  Position chooseGoalPosition(){
         final Random random = new Random();
-        int c = this.col-1;
-
+        int c = random.nextInt(col-1)+1;
         int r = random.nextInt(row-1)+1;
-      //Position goalPosition = new Position(c,r);
         goalPosition.setCol(c);
         goalPosition.setRow(r);
-        //setCellValue(startPosition.getCol(),startPosition.getRow(),9);
         return goalPosition;
     }
     public void setCellValue(int row,int col,int value) {
@@ -81,8 +76,16 @@ public class Maze {
     public void print(){
 
         for(int i=0;i<row;i++){
-            for(int j=0;j<col;j++){
-                System.out.print(getCellValue(i,j)+ "  ");
+            for(int j=0;j<col;j++) {
+                Position p = new Position(i, j);
+                if (p.equals(getStartPosition())) {
+                    System.out.print("S  ");
+                }
+               else if (p.equals(getGoalPosition())) {
+                    System.out.print("E  ");
+                } else {
+                    System.out.print(getCellValue(i, j) + "  ");
+                }
             }
             System.out.println();
         }

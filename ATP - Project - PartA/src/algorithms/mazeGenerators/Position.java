@@ -1,7 +1,5 @@
 package algorithms.mazeGenerators;
 
-import java.util.Objects;
-
 public class Position {
     int row;
     int col;
@@ -13,11 +11,11 @@ public class Position {
         this.col=col;
         //this.val=val;
     }
-    public int getRow() {
+    public int getRowIndex() {
         return row;
     }
 
-    public int getCol() {
+    public int getColIndex() {
         return col;
     }
 

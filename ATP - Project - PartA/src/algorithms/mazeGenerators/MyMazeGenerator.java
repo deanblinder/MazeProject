@@ -1,11 +1,7 @@
 package algorithms.mazeGenerators;
 import java.util.Random;
-import algorithms.mazeGenerators.AMazeGenerator;
-import algorithms.mazeGenerators.Maze;
-import javafx.geometry.Pos;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.*;
 public class MyMazeGenerator extends AMazeGenerator {
     public Maze generate(int row, int col) {
@@ -20,8 +16,8 @@ public class MyMazeGenerator extends AMazeGenerator {
         }
 
         Position startPos=myMaze.chooseStartPosition();
-        myMaze.setCellValue(startPos.getRow(), startPos.getCol(), 9);
-        myMaze=iterative(startPos.getRow(), startPos.getCol() ,myMaze);
+        myMaze.setCellValue(startPos.getRowIndex(), startPos.getColIndex(), 9);
+        myMaze=iterative(startPos.getRowIndex(), startPos.getColIndex() ,myMaze);
         return myMaze;
     }
 
@@ -54,8 +50,8 @@ public class MyMazeGenerator extends AMazeGenerator {
         s.push(tempPosTwo);
 //        maze.print();
 //        System.out.println("----------------");
-        r=s.peek().getRow();
-        c=s.peek().getCol();
+        r=s.peek().getRowIndex();
+        c=s.peek().getColIndex();
         while(!s.isEmpty()) {
 
 //            if(flagFirst){
@@ -95,8 +91,8 @@ public class MyMazeGenerator extends AMazeGenerator {
                             Position tempPos1=new Position(r-2,c);
                             maze.setCellValue(r-2,c,0);
                             s.push(tempPos1);
-                            r=s.peek().getRow();
-                            c=s.peek().getCol();
+                            r=s.peek().getRowIndex();
+                            c=s.peek().getColIndex();
                             upFlag = false;
                             downFlag = false;
                             rightFlag = false;
@@ -126,8 +122,8 @@ public class MyMazeGenerator extends AMazeGenerator {
                             Position tempPos1=new Position(r,c+2);
                             maze.setCellValue(r,c+2,0);
                             s.push(tempPos1);
-                            r=s.peek().getRow();
-                            c=s.peek().getCol();
+                            r=s.peek().getRowIndex();
+                            c=s.peek().getColIndex();
                             upFlag = false;
                             downFlag = false;
                             rightFlag = false;
@@ -159,8 +155,8 @@ public class MyMazeGenerator extends AMazeGenerator {
                             Position tempPos1=new Position(r+2,c);
                             maze.setCellValue(r+2,c,0);
                             s.push(tempPos1);
-                            r=s.peek().getRow();
-                            c=s.peek().getCol();
+                            r=s.peek().getRowIndex();
+                            c=s.peek().getColIndex();
                             upFlag = false;
                             downFlag = false;
                             rightFlag = false;
@@ -192,8 +188,8 @@ public class MyMazeGenerator extends AMazeGenerator {
                             Position tempPos1=new Position(r,c-2);
                             maze.setCellValue(r,c-2,0);
                             s.push(tempPos1);
-                            r=s.peek().getRow();
-                            c=s.peek().getCol();
+                            r=s.peek().getRowIndex();
+                            c=s.peek().getColIndex();
                             upFlag = false;
                             downFlag = false;
                             rightFlag = false;
@@ -215,8 +211,8 @@ public class MyMazeGenerator extends AMazeGenerator {
                     s.pop();
                     s.pop();
                     if(!s.isEmpty()) {
-                        r = s.peek().getRow();
-                        c = s.peek().getCol();
+                        r = s.peek().getRowIndex();
+                        c = s.peek().getColIndex();
                     }
                 }
                 else{
@@ -228,10 +224,10 @@ public class MyMazeGenerator extends AMazeGenerator {
         Random rand =new Random();
         Position goal = new Position(rand.nextInt(maze.getRow()), rand.nextInt(maze.getCol()));
 
-        while (goal.equals(maze.getStartPosition()) || maze.getCellValue(goal.getRow(),goal.getCol())==1){
+        while (goal.equals(maze.getStartPosition()) || maze.getCellValue(goal.getRowIndex(),goal.getColIndex())==1){
             goal = new Position(rand.nextInt(maze.getRow()), rand.nextInt(maze.getCol()));
         }
-        maze.setGoalPosition(goal.getRow(),goal.getCol(),8);
+        maze.setGoalPosition(goal.getRowIndex(),goal.getColIndex(),8);
         return maze;
     }
 }

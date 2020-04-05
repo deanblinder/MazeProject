@@ -2,21 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2561796b-1476-46f0-914a-2defe8b0768c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/ASearchingAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/AState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/BestFirstSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/BreadthFirstSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/DepthFirstSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/ISearchable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/ISearchingAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/MazeState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/SearchableMaze.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/algorithms/search/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/RunSearchOnMaze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP - Project - PartA/META-INF/ATP - Project - PartA.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/EmptyMazeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/EmptyMazeGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/Maze.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/MyMazeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/MyMazeGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/Position.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/SimpleMazeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP - Project - PartA/algorithms/mazeGenerators/SimpleMazeGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP - Project - PartA/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP - Project - PartA/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/AMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/AMazeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP - Project - PartA/main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP - Project - PartA/test/RunMazeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP - Project - PartA/test/RunMazeGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/EmptyMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/EmptyMazeGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Maze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/MyMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/MyMazeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Position.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/SimpleMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/SimpleMazeGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/RunMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/RunMazeGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +72,38 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="algorithms.search" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.RunSearchOnMaze">
+    <configuration name="RunMazeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.RunMazeGenerator" />
+      <module name="ATP - Project - PartA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunSearchOnMaze" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.RunSearchOnMaze" />
+      <module name="ATP - Project - PartA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="ATP - Project - PartA" />
@@ -72,6 +113,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RunSearchOnMaze" />
+        <item itemvalue="Application.RunMazeGenerator" />
         <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
@@ -91,6 +134,7 @@
       <workItem from="1585764938016" duration="165000" />
       <workItem from="1585771958974" duration="1463000" />
       <workItem from="1585831727027" duration="33609000" />
+      <workItem from="1585916972544" duration="39629000" />
     </task>
     <servers />
   </component>
@@ -107,85 +151,85 @@
     </state>
     <state x="2246" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/1920.0.1536.824@1920.0.1536.824" timestamp="1585772150924" />
     <state x="2328" y="111" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585763756240" />
-    <state x="2638" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1585866427301">
+    <state x="2638" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1586014967422">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2494" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/1920.0.1536.824/3840.0.1440.860@1920.0.1536.824" timestamp="1585664044896" />
-    <state x="2638" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585866427301" />
+    <state x="479" y="100" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1585942053508" />
+    <state x="2638" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586014967422" />
     <state x="2525" y="321" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1585772556954">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="2525" y="321" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680/1920.0.1536.824@1920.0.1536.824" timestamp="1585772556954" />
     <state x="2676" y="405" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585743740526" />
-    <state width="890" height="279" key="GridCell.Tab.0.bottom" timestamp="1585867327895">
+    <state x="2608" y="283" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585930075591">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2608" y="283" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585930075590" />
+    <state width="889" height="275" key="GridCell.Tab.0.bottom" timestamp="1586015003659">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="746" height="210" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1536.824@1920.0.1536.824" timestamp="1585772718274" />
-    <state width="890" height="279" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585867327895" />
-    <state width="890" height="279" key="GridCell.Tab.0.center" timestamp="1585867327895">
+    <state width="889" height="275" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586015003659" />
+    <state width="889" height="275" key="GridCell.Tab.0.center" timestamp="1586015003658">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="746" height="210" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1536.824@1920.0.1536.824" timestamp="1585772718274" />
-    <state width="890" height="279" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585867327895" />
-    <state width="890" height="279" key="GridCell.Tab.0.left" timestamp="1585867327895">
+    <state width="889" height="275" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586015003658" />
+    <state width="889" height="275" key="GridCell.Tab.0.left" timestamp="1586015003657">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="746" height="210" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1536.824@1920.0.1536.824" timestamp="1585772718274" />
-    <state width="890" height="279" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585867327895" />
-    <state width="890" height="279" key="GridCell.Tab.0.right" timestamp="1585867327895">
+    <state width="889" height="275" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586015003657" />
+    <state width="889" height="275" key="GridCell.Tab.0.right" timestamp="1586015003658">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="746" height="210" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1536.824@1920.0.1536.824" timestamp="1585772718274" />
-    <state width="890" height="279" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585867327895" />
-    <state width="890" height="279" key="GridCell.Tab.1.bottom" timestamp="1585867327895">
+    <state width="889" height="275" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586015003658" />
+    <state width="889" height="275" key="GridCell.Tab.1.bottom" timestamp="1586015003659">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="890" height="279" key="GridCell.Tab.1.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585867327895" />
-    <state width="890" height="279" key="GridCell.Tab.1.center" timestamp="1585867327895">
+    <state width="889" height="275" key="GridCell.Tab.1.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586015003659" />
+    <state width="889" height="275" key="GridCell.Tab.1.center" timestamp="1586015003659">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="890" height="279" key="GridCell.Tab.1.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585867327895" />
-    <state width="890" height="279" key="GridCell.Tab.1.left" timestamp="1585867327895">
+    <state width="889" height="275" key="GridCell.Tab.1.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586015003659" />
+    <state width="889" height="275" key="GridCell.Tab.1.left" timestamp="1586015003659">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="890" height="279" key="GridCell.Tab.1.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585867327895" />
-    <state width="890" height="279" key="GridCell.Tab.1.right" timestamp="1585867327895">
+    <state width="889" height="275" key="GridCell.Tab.1.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586015003659" />
+    <state width="889" height="275" key="GridCell.Tab.1.right" timestamp="1586015003659">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="890" height="279" key="GridCell.Tab.1.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585867327895" />
-    <state x="2502" y="213" key="SettingsEditor" timestamp="1585743660712">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="889" height="275" key="GridCell.Tab.1.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586015003659" />
+    <state x="284" y="0" key="SettingsEditor" timestamp="1585938328399">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="284" y="0" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1585938328399" />
     <state x="2502" y="213" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585743660712" />
     <state x="2329" y="271" key="caller.chooser.dialog" timestamp="1585833898571">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2329" y="271" key="caller.chooser.dialog/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585833898571" />
-    <state x="2219" y="143" width="606" height="350" key="com.intellij.ide.util.TipDialog" timestamp="1585771958950">
-      <screen x="1920" y="0" width="1536" height="824" />
+    <state x="249" y="118" width="606" height="350" key="com.intellij.ide.util.TipDialog" timestamp="1585916974211">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="2219" y="143" width="606" height="350" key="com.intellij.ide.util.TipDialog/0.0.1280.680/1920.0.1536.824/3840.0.1440.860@0.0.1280.680" timestamp="1585662927782" />
     <state x="2219" y="143" key="com.intellij.ide.util.TipDialog/0.0.1280.680/1920.0.1536.824@1920.0.1536.824" timestamp="1585771958950" />
     <state x="249" y="118" key="com.intellij.ide.util.TipDialog/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1585743561480" />
     <state x="2294" y="180" key="com.intellij.ide.util.TipDialog/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585764937148" />
+    <state x="249" y="118" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1585916974211" />
     <state x="2584" y="413" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1585749122572">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2584" y="413" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585749122572" />
+    <state x="2583" y="171" key="refactoring.ChangeSignatureDialog" timestamp="1586001641549">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2583" y="171" key="refactoring.ChangeSignatureDialog/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1586001641549" />
     <state x="2537" y="265" key="search.everywhere.popup" timestamp="1585763774586">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2537" y="265" key="search.everywhere.popup/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585763774586" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/algorithms/mazeGenerators/MyMazeGenerator.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
