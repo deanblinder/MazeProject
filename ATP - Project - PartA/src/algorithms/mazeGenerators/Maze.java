@@ -55,11 +55,15 @@ public class Maze {
         return goalPosition;
     }
     public void setCellValue(int row,int col,int value) {
-        this.theMaze[row][col] = value;
+        this.theMaze[row][col]=value;
+
     }
 
     public int getCellValue(int row,int col) {
-        return theMaze[row][col];
+        if(row<this.row && col<this.col && col>=0 && row>=0){
+            return theMaze[row][col];
+        }
+        return -1;
     }
 
     public int getRow() {

@@ -9,7 +9,8 @@ public class MazeState extends AState {
 
     public MazeState(Position position) {
         super(0,null);
-        this.position=position;
+        this.position = new Position(position.getRowIndex(),position.getColIndex());
+        //this.position=position;
     }
 
     public Position getPosition() {
@@ -17,6 +18,9 @@ public class MazeState extends AState {
     }
 
     public void setPosition(Position position) {
+        if(position==null){
+            return;
+        }
         this.position = position;
     }
 
@@ -30,11 +34,8 @@ public class MazeState extends AState {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         MazeState mazeState = (MazeState) o;
-        return Objects.equals(position, mazeState.position);
+        return Objects.equals(position.toString(), mazeState.position.toString());
     }
 
     @Override

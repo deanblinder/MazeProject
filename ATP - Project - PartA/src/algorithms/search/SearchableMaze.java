@@ -37,6 +37,9 @@ public class SearchableMaze implements ISearchable {
 
     @Override
     public ArrayList<AState> getAllSuccessors(AState current) {
+        if(current==null){
+            return null;
+        }
         ArrayList<AState> successors = new ArrayList<>();
         MazeState currState = (MazeState)current;
         Position p2 = new Position(currState.getPosition().getRowIndex()-1,currState.getPosition().getColIndex());
@@ -115,8 +118,13 @@ public class SearchableMaze implements ISearchable {
         return successors;
     }
     public Boolean isValidState(MazeState state){
-        if((state.getPosition().getColIndex()<myMaze.getCol() && state.getPosition().getRowIndex()<myMaze.getRow()) && (myMaze.getCellValue(state.getPosition().getRowIndex(),state.getPosition().getColIndex())==0)){
-            return true;
+        if(state==null){
+            return false;
+        }
+        if((state.getPosition().getColIndex()<myMaze.getCol() && state.getPosition().getRowIndex()<myMaze.getRow())){
+            if( (myMaze.getCellValue(state.getPosition().getRowIndex(),state.getPosition().getColIndex())==0)) {
+                return true;
+            }
         }
         return false;
     }

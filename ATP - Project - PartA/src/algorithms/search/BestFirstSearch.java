@@ -17,6 +17,11 @@ public class BestFirstSearch extends BreadthFirstSearch {
 
     @Override
     public Solution solve(ISearchable maze){
+        if(maze==null){
+            return null;
+        }
+        visited = new HashMap<>();
+        evaluatedNodes = 0;
         Comparator<AState> cost = Comparator.comparing(AState::getCost);
         Queue<AState> queue = new PriorityQueue<>(cost);
         queue.add(maze.getStartState());

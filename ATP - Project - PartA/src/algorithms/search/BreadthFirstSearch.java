@@ -7,7 +7,7 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
 
     public BreadthFirstSearch() {
         super();
-        visited = new HashMap<>();
+        //visited = new HashMap<>();
     }
 
     @Override
@@ -18,7 +18,11 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
 
     @Override
     public Solution solve(ISearchable maze){
-
+        if(maze==null){
+            return null;
+        }
+        visited = new HashMap<>();
+        evaluatedNodes = 0;
         Queue<AState> queue = new LinkedList<>();
         queue.add(maze.getStartState());
         visited.put(maze.getStartState().toString(),true);
@@ -27,6 +31,10 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
         return solution;
     }
     public AState solve(ISearchable maze,Queue<AState> queue) {
+        if(maze==null || queue == null){
+            return null;
+        }
+
         ArrayList<AState> successors;
         AState curr;
         while(!queue.isEmpty()){

@@ -34,9 +34,9 @@ import java.util.Objects;
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            AState aState = (AState) o;
-            return Double.compare(aState.cost, cost) == 0 &&
-                    Objects.equals(parent, aState.parent);
+            AState state = (AState) o;
+            return Double.compare(state.cost, cost) == 0 &&
+                    Objects.equals(parent, state.parent);
         }
 
         @Override

@@ -32,6 +32,9 @@ public class MyMazeGenerator extends AMazeGenerator {
         return randoms.toArray(new Integer[4]);
     }
     public Maze iterative(int r, int c , Maze maze) {
+        if(maze==null){
+            return null;
+        }
         int cnt=0;
         // 4 random directions
         boolean flagFirst=true;
