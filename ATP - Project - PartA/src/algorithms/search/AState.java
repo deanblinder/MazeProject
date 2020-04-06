@@ -8,14 +8,10 @@ import java.util.Objects;
         double cost;
         private AState parent;
 
-        public AState(double cost, AState cameFrom) {
+        public AState(double cost, AState parent) {
             this.cost = cost;
-            this.parent = cameFrom;
+            this.parent = parent;
 
-        }
-
-        public AState() {
-            this.cost = cost;
         }
 
         public double getCost() {
@@ -24,14 +20,6 @@ import java.util.Objects;
 
         public void setCost(double cost) {
             this.cost = cost;
-        }
-
-        public AState getCameFrom() {
-            return parent;
-        }
-
-        public void setCameFrom(AState cameFrom) {
-            this.parent = cameFrom;
         }
 
         public AState getParent() {

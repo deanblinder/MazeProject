@@ -9,6 +9,7 @@ public class MyMazeGenerator extends AMazeGenerator {
         ArrayList<Position> listOfWalls = new ArrayList<Position>();
         EmptyMazeGenerator emptyMaze = new EmptyMazeGenerator();
         Maze myMaze = emptyMaze.generate(row, col);
+        //make all maze 1
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 myMaze.setCellValue(i, j, 1);
@@ -16,7 +17,7 @@ public class MyMazeGenerator extends AMazeGenerator {
         }
 
         Position startPos=myMaze.chooseStartPosition();
-        myMaze.setCellValue(startPos.getRowIndex(), startPos.getColIndex(), 9);
+        myMaze.setCellValue(startPos.getRowIndex(), startPos.getColIndex(), 0);// set start pos 0
         myMaze=iterative(startPos.getRowIndex(), startPos.getColIndex() ,myMaze);
         return myMaze;
     }
@@ -41,13 +42,7 @@ public class MyMazeGenerator extends AMazeGenerator {
         //flagFirst=false;
 
         s.push(tempPos);
-        s.pop();
-        maze.setCellValue(r, c + 1, 0);
-        Position tempPosOne=new Position(r,c+1);
-        s.push(tempPosOne);
-        Position tempPosTwo=new Position(r,c+2);
-        maze.setCellValue(r,c+2,0);
-        s.push(tempPosTwo);
+//        s.pop();
 //        maze.print();
 //        System.out.println("----------------");
         r=s.peek().getRowIndex();
@@ -77,7 +72,7 @@ public class MyMazeGenerator extends AMazeGenerator {
 
                     case 1: // Up
                         //　Whether 2 cells up is out or not
-                        if (r - 2 <= 0){
+                        if (r - 2 < 0){
                             upFlag = true;
                             continue;
                         }
@@ -108,7 +103,7 @@ public class MyMazeGenerator extends AMazeGenerator {
                         upFlag = true;
                     case 2: // Right
                         // Whether 2 cells to the right is out or not
-                        if (c + 2 >= maze.getCol() - 1) {
+                        if (c + 2 > maze.getCol() - 1) {
                             rightFlag =true;
                             continue;
                         }
@@ -141,7 +136,7 @@ public class MyMazeGenerator extends AMazeGenerator {
 
                     case 3: // Down
                         // Whether 2 cells down is out or not
-                        if (r + 2 >= maze.getRow() - 1) {
+                        if (r + 2 > maze.getRow() - 1) {
                             downFlag = true;
                             continue;
                         }
@@ -173,7 +168,7 @@ public class MyMazeGenerator extends AMazeGenerator {
                         //flag=true;
                     case 4: // Left
                         // Whether 2 cells to the left is out or not
-                        if (c - 2 <= 0){
+                        if (c - 2 < 0){
                             leftFlag = true;
                             continue;
                         }
@@ -209,6 +204,12 @@ public class MyMazeGenerator extends AMazeGenerator {
             if(downFlag&&upFlag&&rightFlag&&leftFlag){
                 if(!s.isEmpty()){
                     s.pop();
+                    if(!s.isEmpty()) {
+                        r = s.peek().getRowIndex();
+                        c = s.peek().getColIndex();
+                    }
+                }
+                if(!s.isEmpty()){
                     s.pop();
                     if(!s.isEmpty()) {
                         r = s.peek().getRowIndex();
@@ -227,7 +228,7 @@ public class MyMazeGenerator extends AMazeGenerator {
         while (goal.equals(maze.getStartPosition()) || maze.getCellValue(goal.getRowIndex(),goal.getColIndex())==1){
             goal = new Position(rand.nextInt(maze.getRow()), rand.nextInt(maze.getCol()));
         }
-        maze.setGoalPosition(goal.getRowIndex(),goal.getColIndex(),8);
+        maze.setGoalPosition(goal.getRowIndex(),goal.getColIndex(),0);
         return maze;
     }
 }

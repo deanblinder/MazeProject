@@ -1,24 +1,27 @@
 package algorithms.search;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Solution {
-    ArrayList<AState> sol;
+    AState endState;
 
-    public Solution(ArrayList<AState> sol) {
-        sol = new ArrayList<>();
-        this.sol.addAll(sol);
+    public Solution(AState state) {
+        this.endState=state;
     }
 
     public ArrayList<AState> getSolutionPath() {
-        return sol;
-    }
-
-    @Override
-    public String toString() {
-        return "Solution{" +
-                "sol=" + sol +
-                '}';
+        Stack<AState> solutionStack = new Stack<AState>();
+        ArrayList<AState> finalSol = new ArrayList<>();
+        solutionStack.push(endState);
+        while (this.endState.getParent()!=null){
+            solutionStack.push(this.endState.getParent());
+            this.endState=this.endState.getParent();
+        }
+        while(!solutionStack.isEmpty()){
+            finalSol.add(solutionStack.pop());
+        }
+        return finalSol;
     }
 
 }

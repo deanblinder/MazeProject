@@ -1,14 +1,14 @@
 package algorithms.search;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public abstract class ASearchingAlgorithm implements ISearchingAlgorithm{
-    HashMap<String, AState> states;
+    HashMap<String, Boolean> visited;
     int evaluatedNodes;
 
     public ASearchingAlgorithm() {
-        states = new HashMap<String, AState>();
+        visited = new HashMap<String, Boolean>();
         evaluatedNodes  = 0;
     }
 
@@ -24,17 +24,6 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm{
     public Solution solve(ISearchable maze) {
         return null;
     }
-
-    public ArrayList<AState> getPath(AState state) {
-        ArrayList<AState> result_path = new ArrayList<>();
-        while(state.getCameFrom()!=null){
-            result_path.add(0,state);
-        }
-        result_path.add(0,state);
-        return result_path;
-    }
-
-
 
 
 }
