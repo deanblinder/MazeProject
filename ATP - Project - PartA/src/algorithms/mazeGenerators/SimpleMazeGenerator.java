@@ -13,34 +13,34 @@ public class SimpleMazeGenerator extends AMazeGenerator {
             }
         }
         Position startPos=myMaze.chooseStartPosition();
-        myMaze.setCellValue(startPos.getRowIndex(),startPos.getColIndex(),0);
+        myMaze.setCellValue(startPos.getRowIndex(),startPos.getColumnIndex(),0);
         Position goalPos=myMaze.chooseGoalPosition();
-        myMaze.setCellValue(goalPos.getRowIndex(),goalPos.getColIndex(),0);
+        myMaze.setCellValue(goalPos.getRowIndex(),goalPos.getColumnIndex(),0);
 
         if(startPos.getRowIndex()>goalPos.getRowIndex()) {
             for(int i=startPos.getRowIndex();i>=goalPos.getRowIndex();i--) {
-                myMaze.setCellValue(i,startPos.getColIndex(),0);
+                myMaze.setCellValue(i,startPos.getColumnIndex(),0);
 
             }
         }
         else{
             for(int i=startPos.getRowIndex();i<=goalPos.getRowIndex();i++) {
-                myMaze.setCellValue(i,startPos.getColIndex(),0);
+                myMaze.setCellValue(i,startPos.getColumnIndex(),0);
 
             }
 
         }
 
 
-        if(startPos.getColIndex()>goalPos.getColIndex()){
-            for(int i=startPos.getColIndex();i>=goalPos.getColIndex();i--){
+        if(startPos.getColumnIndex()>goalPos.getColumnIndex()){
+            for(int i=startPos.getColumnIndex();i>=goalPos.getColumnIndex();i--){
                 myMaze.setCellValue(goalPos.getRowIndex(),i,0);
 
 
             }
         }
         else{
-            for(int i=startPos.getColIndex();i<=goalPos.getColIndex();i++) {
+            for(int i=startPos.getColumnIndex();i<=goalPos.getColumnIndex();i++) {
                 myMaze.setCellValue(goalPos.getRowIndex(),i,0);
 
             }

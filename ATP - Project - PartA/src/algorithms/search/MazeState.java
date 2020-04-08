@@ -9,7 +9,7 @@ public class MazeState extends AState {
 
     public MazeState(Position position) {
         super(0,null);
-        this.position = new Position(position.getRowIndex(),position.getColIndex());
+        this.position = new Position(position.getRowIndex(),position.getColumnIndex());
         //this.position=position;
     }
 

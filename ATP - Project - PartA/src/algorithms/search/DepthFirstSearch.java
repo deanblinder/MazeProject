@@ -27,7 +27,7 @@ public class DepthFirstSearch extends ASearchingAlgorithm {
         }
         //visited = new HashMap<>();
         evaluatedNodes = 0;
-        ArrayList<String> visit = new ArrayList<>();
+        HashSet<String> visit = new HashSet<>();
         ArrayList<AState> successors;
         Stack<AState> stack = new Stack<>();
         AState start=maze.getStartState();

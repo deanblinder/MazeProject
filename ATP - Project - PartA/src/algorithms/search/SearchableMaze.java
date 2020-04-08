@@ -42,26 +42,26 @@ public class SearchableMaze implements ISearchable {
         }
         ArrayList<AState> successors = new ArrayList<>();
         MazeState currState = (MazeState)current;
-        Position p2 = new Position(currState.getPosition().getRowIndex()-1,currState.getPosition().getColIndex());
+        Position p2 = new Position(currState.getPosition().getRowIndex()-1,currState.getPosition().getColumnIndex());
         MazeState up = new MazeState(p2);
-        Position p3 = new Position(currState.getPosition().getRowIndex(),currState.getPosition().getColIndex()+1);
+        Position p3 = new Position(currState.getPosition().getRowIndex(),currState.getPosition().getColumnIndex()+1);
         MazeState right = new MazeState(p3);
-        Position p1 = new Position(currState.getPosition().getRowIndex()+1,currState.getPosition().getColIndex());
+        Position p1 = new Position(currState.getPosition().getRowIndex()+1,currState.getPosition().getColumnIndex());
         MazeState down = new MazeState(p1);
-        Position p4 = new Position(currState.getPosition().getRowIndex(),currState.getPosition().getColIndex()-1);
+        Position p4 = new Position(currState.getPosition().getRowIndex(),currState.getPosition().getColumnIndex()-1);
         MazeState left = new MazeState(p4);
 
 
-        Position p21 = new Position(currState.getPosition().getRowIndex()-1,currState.getPosition().getColIndex()+1);
+        Position p21 = new Position(currState.getPosition().getRowIndex()-1,currState.getPosition().getColumnIndex()+1);
         MazeState upRight = new MazeState(p21);
 
-        Position p31 = new Position(currState.getPosition().getRowIndex()+1,currState.getPosition().getColIndex()+1);
+        Position p31 = new Position(currState.getPosition().getRowIndex()+1,currState.getPosition().getColumnIndex()+1);
         MazeState rightDown = new MazeState(p31);
 
-        Position p11 = new Position(currState.getPosition().getRowIndex()+1,currState.getPosition().getColIndex()-1);
+        Position p11 = new Position(currState.getPosition().getRowIndex()+1,currState.getPosition().getColumnIndex()-1);
         MazeState downLeft = new MazeState(p11);
 
-        Position p41 = new Position(currState.getPosition().getRowIndex()-1,currState.getPosition().getColIndex()-1);
+        Position p41 = new Position(currState.getPosition().getRowIndex()-1,currState.getPosition().getColumnIndex()-1);
         MazeState upLeft = new MazeState(p41);
 
         //up
@@ -121,8 +121,8 @@ public class SearchableMaze implements ISearchable {
         if(state==null){
             return false;
         }
-        if((state.getPosition().getColIndex()<myMaze.getCol() && state.getPosition().getRowIndex()<myMaze.getRow())){
-            if( (myMaze.getCellValue(state.getPosition().getRowIndex(),state.getPosition().getColIndex())==0)) {
+        if((state.getPosition().getColumnIndex()<myMaze.getCol() && state.getPosition().getRowIndex()<myMaze.getRow())){
+            if( (myMaze.getCellValue(state.getPosition().getRowIndex(),state.getPosition().getColumnIndex())==0)) {
                 return true;
             }
         }

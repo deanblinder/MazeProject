@@ -17,8 +17,8 @@ public class MyMazeGenerator extends AMazeGenerator {
         }
 
         Position startPos=myMaze.chooseStartPosition();
-        myMaze.setCellValue(startPos.getRowIndex(), startPos.getColIndex(), 0);// set start pos 0
-        myMaze=iterative(startPos.getRowIndex(), startPos.getColIndex() ,myMaze);
+        myMaze.setCellValue(startPos.getRowIndex(), startPos.getColumnIndex(), 0);// set start pos 0
+        myMaze=iterative(startPos.getRowIndex(), startPos.getColumnIndex() ,myMaze);
         return myMaze;
     }
 
@@ -49,7 +49,7 @@ public class MyMazeGenerator extends AMazeGenerator {
 //        maze.print();
 //        System.out.println("----------------");
         r=s.peek().getRowIndex();
-        c=s.peek().getColIndex();
+        c=s.peek().getColumnIndex();
         while(!s.isEmpty()) {
 
 //            if(flagFirst){
@@ -90,7 +90,7 @@ public class MyMazeGenerator extends AMazeGenerator {
                             maze.setCellValue(r-2,c,0);
                             s.push(tempPos1);
                             r=s.peek().getRowIndex();
-                            c=s.peek().getColIndex();
+                            c=s.peek().getColumnIndex();
                             upFlag = false;
                             downFlag = false;
                             rightFlag = false;
@@ -121,7 +121,7 @@ public class MyMazeGenerator extends AMazeGenerator {
                             maze.setCellValue(r,c+2,0);
                             s.push(tempPos1);
                             r=s.peek().getRowIndex();
-                            c=s.peek().getColIndex();
+                            c=s.peek().getColumnIndex();
                             upFlag = false;
                             downFlag = false;
                             rightFlag = false;
@@ -154,7 +154,7 @@ public class MyMazeGenerator extends AMazeGenerator {
                             maze.setCellValue(r+2,c,0);
                             s.push(tempPos1);
                             r=s.peek().getRowIndex();
-                            c=s.peek().getColIndex();
+                            c=s.peek().getColumnIndex();
                             upFlag = false;
                             downFlag = false;
                             rightFlag = false;
@@ -187,7 +187,7 @@ public class MyMazeGenerator extends AMazeGenerator {
                             maze.setCellValue(r,c-2,0);
                             s.push(tempPos1);
                             r=s.peek().getRowIndex();
-                            c=s.peek().getColIndex();
+                            c=s.peek().getColumnIndex();
                             upFlag = false;
                             downFlag = false;
                             rightFlag = false;
@@ -209,14 +209,14 @@ public class MyMazeGenerator extends AMazeGenerator {
                     s.pop();
                     if(!s.isEmpty()) {
                         r = s.peek().getRowIndex();
-                        c = s.peek().getColIndex();
+                        c = s.peek().getColumnIndex();
                     }
                 }
                 if(!s.isEmpty()){
                     s.pop();
                     if(!s.isEmpty()) {
                         r = s.peek().getRowIndex();
-                        c = s.peek().getColIndex();
+                        c = s.peek().getColumnIndex();
                     }
                 }
                 else{
@@ -228,10 +228,10 @@ public class MyMazeGenerator extends AMazeGenerator {
         Random rand =new Random();
         Position goal = new Position(rand.nextInt(maze.getRow()), rand.nextInt(maze.getCol()));
 
-        while (goal.equals(maze.getStartPosition()) || maze.getCellValue(goal.getRowIndex(),goal.getColIndex())==1){
+        while (goal.equals(maze.getStartPosition()) || maze.getCellValue(goal.getRowIndex(),goal.getColumnIndex())==1){
             goal = new Position(rand.nextInt(maze.getRow()), rand.nextInt(maze.getCol()));
         }
-        maze.setGoalPosition(goal.getRowIndex(),goal.getColIndex(),0);
+        maze.setGoalPosition(goal.getRowIndex(),goal.getColumnIndex(),0);
         return maze;
     }
 }
