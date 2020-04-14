@@ -15,6 +15,11 @@ public class BestFirstSearch extends BreadthFirstSearch {
         return "Best First Search";
     }
 
+    /**
+     *
+     * @param maze
+     * @return solved maze
+     */
     @Override
     public Solution solve(ISearchable maze){
         if(maze==null){

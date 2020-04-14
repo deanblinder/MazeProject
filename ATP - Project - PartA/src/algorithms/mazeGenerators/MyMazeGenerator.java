@@ -4,6 +4,12 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.*;
 public class MyMazeGenerator extends AMazeGenerator {
+    /**
+     *
+     * @param row
+     * @param col
+     * @return maze with number of rows row and number of columns col
+     */
     public Maze generate(int row, int col) {
 
         ArrayList<Position> listOfWalls = new ArrayList<Position>();
@@ -22,7 +28,10 @@ public class MyMazeGenerator extends AMazeGenerator {
         return myMaze;
     }
 
-
+    /**
+     *
+     * @return a array of 4 with random 1-4 numbers
+     */
     //random direction
     public Integer[] generateRandomDirections() {
         ArrayList<Integer> randoms = new ArrayList<Integer>();
@@ -31,6 +40,14 @@ public class MyMazeGenerator extends AMazeGenerator {
         Collections.shuffle(randoms);
         return randoms.toArray(new Integer[4]);
     }
+
+    /**
+     *
+     * @param r number of rows in maze
+     * @param c number of cols in maze
+     * @param maze maze
+     * @return a maze;
+     */
     public Maze iterative(int r, int c , Maze maze) {
         if(maze==null){
             return null;
@@ -40,35 +57,15 @@ public class MyMazeGenerator extends AMazeGenerator {
         boolean flagFirst=true;
         Stack<Position> s = new Stack<Position>();
         Position tempPos = new Position(r,c);
-        //maze.setCellValue(r,c,0);
-
-        //flagFirst=false;
-
         s.push(tempPos);
-//        s.pop();
-//        maze.print();
-//        System.out.println("----------------");
         r=s.peek().getRowIndex();
         c=s.peek().getColumnIndex();
         while(!s.isEmpty()) {
-
-//            if(flagFirst){
-//                s.pop();
-//                flagFirst=false;
-//            }
             boolean upFlag = false;
             boolean downFlag = false;
             boolean rightFlag = false;
             boolean leftFlag = false;
-
-
             Integer[] randDirs = generateRandomDirections();
-            // Examine each direction
-//            r=s.peek().getRow();
-//            c=s.peek().getCol();
-
-
-
             for (int i = 0; i < randDirs.length  ; i++) {
 
                 switch (randDirs[i]) {
@@ -95,12 +92,6 @@ public class MyMazeGenerator extends AMazeGenerator {
                             downFlag = false;
                             rightFlag = false;
                             leftFlag = false;
-//                            System.out.println("up :"+cnt);
-//                            cnt++;
-//                            System.out.println(tempPos1.toString());
-//                            System.out.println(tempPos2.toString());
-//                            maze.print();
-//                            System.out.println("----------------");
                             break;
                         }
                         upFlag = true;
@@ -126,12 +117,6 @@ public class MyMazeGenerator extends AMazeGenerator {
                             downFlag = false;
                             rightFlag = false;
                             leftFlag = false;
-//                            System.out.println("right :"+cnt);
-//                            cnt++;
-//                            System.out.println(tempPos1.toString());
-//                            System.out.println(tempPos2.toString());
-//                            maze.print();
-//                            System.out.println("----------------");
                             break;
                         }
                         rightFlag =true;
@@ -159,12 +144,6 @@ public class MyMazeGenerator extends AMazeGenerator {
                             downFlag = false;
                             rightFlag = false;
                             leftFlag = false;
-//                            System.out.println("down :"+cnt);
-//                            cnt++;
-//                            System.out.println(tempPos1.toString());
-//                            System.out.println(tempPos2.toString());
-//                            maze.print();
-//                            System.out.println("----------------");
                             break;
                         }
                         downFlag = true;
@@ -192,12 +171,6 @@ public class MyMazeGenerator extends AMazeGenerator {
                             downFlag = false;
                             rightFlag = false;
                             leftFlag = false;
-//                            System.out.println("left :"+cnt);
-//                            cnt++;
-//                            System.out.println(tempPos1.toString());
-//                            System.out.println(tempPos2.toString());
-//                            maze.print();
-//                            System.out.println("----------------");
                             break;
                         }
                         leftFlag = true;

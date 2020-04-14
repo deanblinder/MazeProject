@@ -19,7 +19,13 @@ public class DepthFirstSearch extends ASearchingAlgorithm {
     public String getName() {
         return "Depth First Search";
     }
-    
+
+
+    /**
+     *
+     * @param maze
+     * @return solved maze
+     */
     @Override
     public Solution solve(ISearchable maze) {
         if(maze==null){

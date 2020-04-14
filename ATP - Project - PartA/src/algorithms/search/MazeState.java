@@ -7,6 +7,10 @@ import java.util.Objects;
 public class MazeState extends AState {
     private  Position position;
 
+    /**
+     *
+     * @param position extends Astate with Position
+     */
     public MazeState(Position position) {
         super(0,null);
         this.position = new Position(position.getRowIndex(),position.getColumnIndex());

@@ -15,7 +15,11 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
         return "Breadth First Search";
     }
 
-
+    /**
+     *
+     * @param maze
+     * @return solved maze
+     */
     @Override
     public Solution solve(ISearchable maze){
         if(maze==null){
@@ -30,6 +34,13 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
         Solution solution =new Solution(goalState);
         return solution;
     }
+
+    /**
+     *
+     * @param maze
+     * @param queue
+     * @return the final Astate
+     */
     public AState solve(ISearchable maze,Queue<AState> queue) {
         if(maze==null || queue == null){
             return null;

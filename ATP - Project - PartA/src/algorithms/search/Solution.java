@@ -6,10 +6,18 @@ import java.util.Stack;
 public class Solution {
     AState endState;
 
+    /**
+     *
+     * @param state
+     */
     public Solution(AState state) {
         this.endState=state;
     }
 
+    /**
+     *
+     * @return the path of the solution
+     */
     public ArrayList<AState> getSolutionPath() {
         Stack<AState> solutionStack = new Stack<AState>();
         ArrayList<AState> finalSol = new ArrayList<>();

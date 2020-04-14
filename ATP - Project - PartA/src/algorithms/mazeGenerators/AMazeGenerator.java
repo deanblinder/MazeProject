@@ -9,7 +9,6 @@ public abstract class AMazeGenerator implements IMazeGenerator {
        return (end-start);
     }
     public Maze generate(int row,int col) {
-
         return null;
     }
 }

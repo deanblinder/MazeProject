@@ -35,6 +35,12 @@ public class SearchableMaze implements ISearchable {
         return goalState;
     }
 
+
+    /**
+     *
+     * @param current current AState
+     * @return all possible successors that are valid and legal
+     */
     @Override
     public ArrayList<AState> getAllSuccessors(AState current) {
         if(current==null){
@@ -117,6 +123,12 @@ public class SearchableMaze implements ISearchable {
 //        }
         return successors;
     }
+
+    /**
+     *
+     * @param state
+     * @return true/false if the state is valid
+     */
     public Boolean isValidState(MazeState state){
         if(state==null){
             return false;

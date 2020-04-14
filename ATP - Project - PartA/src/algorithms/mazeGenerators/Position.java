@@ -3,13 +3,15 @@ package algorithms.mazeGenerators;
 public class Position {
     int row;
     int col;
-    //int val;
-    //int [] position;
 
+    /**
+     * constructor of Position in maze
+     * @param row
+     * @param col
+     */
     public Position(int row,int col){
         this.row=row;
         this.col=col;
-        //this.val=val;
     }
     public int getRowIndex() {
         return row;

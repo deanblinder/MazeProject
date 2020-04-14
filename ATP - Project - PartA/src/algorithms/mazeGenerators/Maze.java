@@ -9,6 +9,12 @@ public class Maze {
     int row;
     int col;
     int [][] theMaze;
+
+    /**
+     * constructor of an empty maze
+     * @param row number of rows
+     * @param col number of columns
+     */
     public Maze(int row, int col) {
         this.row = row;
         this.col = col;
@@ -21,21 +27,39 @@ public class Maze {
 
     }
 
+    /**
+     *
+     * @return start Position
+     */
     public Position getStartPosition() {
 
         return startPosition;
     }
 
+    /**
+     *
+     * @return goal Position
+     */
     public Position getGoalPosition() {
         return goalPosition;
     }
 
+    /**
+     *
+     * @param r row number
+     * @param c col number
+     * @param val value of goal position
+     */
     public void setGoalPosition(int r, int c, int val) {
         this.goalPosition.setRow(r);
         this.goalPosition.setCol(c);
         this.theMaze[r][c]=val;
     }
 
+    /**
+     *
+     * @return random start position
+     */
     public Position chooseStartPosition(){
         final Random random = new Random();
         int c = random.nextInt(col-1)+1;
@@ -46,6 +70,11 @@ public class Maze {
 
         return startPosition;
     }
+
+    /**
+     *
+     * @return random goal position
+     */
     public  Position chooseGoalPosition(){
         final Random random = new Random();
         int c = random.nextInt(col-1)+1;
@@ -54,11 +83,24 @@ public class Maze {
         goalPosition.setRow(r);
         return goalPosition;
     }
+
+    /**
+     *
+     * @param row row number
+     * @param col col number
+     * @param value value of maze[row][col]
+     */
     public void setCellValue(int row,int col,int value) {
         this.theMaze[row][col]=value;
 
     }
 
+    /**
+     *
+     * @param row row number
+     * @param col col number
+     * @return the value of maze[row][col]
+     */
     public int getCellValue(int row,int col) {
         if(row<this.row && col<this.col && col>=0 && row>=0){
             return theMaze[row][col];
@@ -66,17 +108,33 @@ public class Maze {
         return -1;
     }
 
+    /**
+     *
+     * @return the number of rows
+     */
     public int getRow() {
         return row;
     }
 
+    /**
+     *
+     * @return the number of columns
+     */
     public int getCol() {
         return col;
     }
+
+    /**
+     *
+     * @return the maze
+     */
     public int[][] getTheMaze() {
         return theMaze;
     }
 
+    /**
+     * print the maze;
+     */
     public void print(){
 
         for(int i=0;i<row;i++){
