@@ -24,12 +24,11 @@ public class MyDecompressorInputStream extends InputStream {
             boolean flag=false;
             byte temp;
             int i=0;
-            while ( (temp = (byte)in.read())!=-1){
-                b[i]=temp;
-                i++;
+            in.read(b,0,b.length);
 
-            }
-            return i;
+
+
+            return 0;
 
 
 

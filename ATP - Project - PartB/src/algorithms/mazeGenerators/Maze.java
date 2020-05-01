@@ -1,6 +1,10 @@
 package algorithms.mazeGenerators;
 
+import java.lang.reflect.Array;
+import java.nio.ByteBuffer;
+import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class Maze {
 
@@ -27,9 +31,15 @@ public class Maze {
 
     }
     public  Maze(byte[] b){
-      Maze m = new Maze(b[4],b[5]);
-      int k=6;
+        this.row = ByteBuffer.wrap(Arrays.copyOfRange(b,16,20)).getInt();
+        this.col = ByteBuffer.wrap(Arrays.copyOfRange(b,20,24)).getInt();
+        this.theMaze = new int[this.row][this.col];
 
+        this.startPosition =new Position(ByteBuffer.wrap(Arrays.copyOfRange(b,0,4)).getInt(),ByteBuffer.wrap(Arrays.copyOfRange(b,4,8)).getInt());
+        this.goalPosition =new Position(ByteBuffer.wrap(Arrays.copyOfRange(b,8,12)).getInt(),ByteBuffer.wrap(Arrays.copyOfRange(b,12,16)).getInt());
+
+
+        int k=24;
         for(int i=0;i<row;i++) {
             for (int j = 0; j < col; j++) {
                 this.theMaze[i][j] =b[k];
@@ -39,16 +49,60 @@ public class Maze {
 
     }
 
+
+    public  void insertToArray(byte[] insertTo,byte[] toInsert,int start){
+        int j=0;
+        for(int i=start;i<start+4;i++){
+            insertTo[i]=toInsert[j];
+            j++;
+        }
+    }
+
+    public byte[] convertToBinary(int num){
+        byte[] arr = new byte[4];
+        int x=0, i=3;
+        while (num!=0){
+            x = num%2;
+            arr[i] = (byte) x;
+            num=num/2;
+            i--;
+        }
+        return  arr;
+
+    }
     public byte[]  toByteArray(){
 
-        byte[] mazeInfo = new byte[this.getRow()*this.getCol()+6];
-        mazeInfo[0]=(byte) this.getStartPosition().getRowIndex();//x in
-        mazeInfo[1]=(byte)this.getStartPosition().getColumnIndex();//y in
-        mazeInfo[2]=(byte) this.getGoalPosition().getRowIndex();//x out
-        mazeInfo[3]=(byte)this.getGoalPosition().getColumnIndex();//y out
-        mazeInfo[4]=(byte) this.getRow();//num of rows
-        mazeInfo[5]=(byte) this.getCol();//num of cols
-        int i=6;
+        byte[] mazeInfo = new byte[this.getRow()*this.getCol()+6*4];
+       // byte[] temp =convertToBinary( 6 );
+        byte[] xIn =convertToBinary( this.getStartPosition().getRowIndex() );
+       byte[] yIn = convertToBinary(this.getStartPosition().getColumnIndex());
+        byte[] xOut = convertToBinary(this.getGoalPosition().getRowIndex());
+        byte[] yOut =  convertToBinary(this.getGoalPosition().getColumnIndex());
+        byte[] rows =  convertToBinary(this.getRow());
+        byte[] cols =  convertToBinary(this.getCol());
+
+
+        // byte[] xIn = ByteBuffer.allocate(4).putInt(this.getStartPosition().getRowIndex()).array();
+
+       //byte[] yIn = ByteBuffer.allocate(4).putInt(this.getStartPosition().getColumnIndex()).array();
+//
+//        byte[] xOut = ByteBuffer.allocate(4).putInt(this.getGoalPosition().getRowIndex()).array();
+//
+//        byte[] yOut = ByteBuffer.allocate(4).putInt(this.getGoalPosition().getRowIndex()).array();
+//
+//        byte[] rows = ByteBuffer.allocate(4).putInt(this.getRow()).array();
+//
+//        byte[] cols = ByteBuffer.allocate(4).putInt(this.getCol()).array();
+
+        insertToArray(mazeInfo,xIn,0);
+        insertToArray(mazeInfo,yIn,4);
+        insertToArray(mazeInfo,xOut,8);
+        insertToArray(mazeInfo,yOut,12);
+        insertToArray(mazeInfo,rows,16);
+        insertToArray(mazeInfo,cols,20);
+
+
+        int i=24;
         for (int j=0;j<getRow();j++){
             for (int k=0;k<getCol();k++){
                 mazeInfo[i]=(byte) this.getCellValue(j,k);
@@ -175,12 +229,12 @@ public class Maze {
             for(int j=0;j<col;j++) {
                 Position p = new Position(i, j);
                 if (p.equals(getStartPosition())) {
-                    System.out.print("S  ");
+                    System.out.print("S");
                 }
                else if (p.equals(getGoalPosition())) {
-                    System.out.print("E  ");
+                    System.out.print("E");
                 } else {
-                    System.out.print(getCellValue(i, j) + "  ");
+                    System.out.print(getCellValue(i, j) +"");
                 }
             }
             System.out.println();
