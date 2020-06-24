@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import View.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" onKeyPressed="#KeyPressed" stylesheets="View.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+    <left>
+        <VBox prefHeight="200.0" prefWidth="178.0" spacing="5.0" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <Label text="Maze rows:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label text="Maze columns:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtfld_rowsNum" disable="false" text="10" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtfld_columnsNum" disable="false" text="10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Button fx:id="btn_generateMaze" onAction="#generateMaze" prefHeight="25.0" prefWidth="167.0" text="Generate Maze" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                    <Button fx:id="btn_solveButton" cancelButton="true" disable="true" onAction="#solveMaze" prefHeight="25.0" prefWidth="167.0" text="Solve Maze" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                    <Label text="Char row:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <Label text="Char column:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <Label fx:id="lbl_rowsNum" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <Label fx:id="lbl_columnsNum" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                    <!--<Label GridPane.columnIndex="1" GridPane.rowIndex="4" text="${controller.characterPositionRow}" />-->
+                    <!--<Label GridPane.columnIndex="1" GridPane.rowIndex="5" text="${controller.characterPositionColumn}"/>-->
+                    <Label fx:id="lbl_player_row" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <Label fx:id="lbl_player_col" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+<!--                    <ChoiceBox value="2 minutes" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="2 minutes" />
+                                <String fx:value="5 minutes" />
+                                <String fx:value="15 minutes" />
+                            </FXCollections>
+                        </items>
+                    </ChoiceBox>-->
+                </GridPane>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+    </left>
+    <bottom>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Status bar" />
+            </children>
+        </HBox>
+    </bottom>
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#generateMaze" text="New" />
+                                <MenuItem mnemonicParsing="false" onAction="#saveGame" text="Save" />
+                                <MenuItem mnemonicParsing="false" onAction="#loadGame" text="Load" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Properties">
+                            <items>
+                                <Menu mnemonicParsing="false" text="Num Of Treads">
+                           <graphic>
+                              <Slider fx:id="lbl_numOfTreads" onMouseClicked="#pickNumOfTreads" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" />
+                           </graphic></Menu>
+                                <Menu mnemonicParsing="false" text="Maze Generating Algorithm">
+                                    <items>
+                                        <CheckMenuItem fx:id="Simple" onAction="#pickSimple" text="Simple" />
+                                        <CheckMenuItem fx:id="MyGenerator" onAction="#pickMyMaze" text="MyGenerator" />
+                                        <CheckMenuItem fx:id="Empty" onAction="#pickEmpty" text="Empty" />
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Maze Solving Algorithm">
+                                    <items>
+                                        <CheckMenuItem fx:id="bestOption" onAction="#pickBest" text="Best First Search" />
+                                        <CheckMenuItem fx:id="breadthOption" onAction="#pickBfs" text="Breadth First Search" />
+                                        <CheckMenuItem fx:id="depthOption" onAction="#pickDfs" text="Depth First Search" />
+                                    </items>
+                                </Menu>
+                            </items>
+                        </Menu>
+
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#showHelp" text="Help" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="About">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#About" text="About" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Exit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#exitGame" text="Exit" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </children>
+        </VBox>
+    </top>
+    <center>
+
+        <StackPane onScroll="#onScroll" BorderPane.alignment="CENTER">
+
+                <MazeDisplayer fx:id="mazeDisplayer" height="600.0" imageFileNameCharacter="resources/Images/jazz.png" imageFileNameGoal="resources/Images/carret.png" imageFileNameWall="resources/Images/wall3.jpg" onKeyPressed="#KeyPressed" onMouseClicked="#mouseClicked" width="600.0" />
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </StackPane>
+    </center>
+</BorderPane>

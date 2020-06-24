@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <Button layoutX="460.0" layoutY="236.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" text="6" />
+      <Button layoutX="330.0" layoutY="236.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" text="4" />
+      <Button layoutX="389.0" layoutY="200.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" text="8" />
+      <Button layoutX="389.0" layoutY="275.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" text="2" />
+      <Button layoutX="460.0" layoutY="200.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" text="9" />
+      <Button layoutX="460.0" layoutY="275.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" text="3" />
+      <Button layoutX="330.0" layoutY="200.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" text="7" />
+      <Button layoutX="330.0" layoutY="275.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" text="1" />
+      <Button layoutX="389.0" layoutY="236.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" text="5" />
+      <Button layoutX="328.0" layoutY="161.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="Num Lock" />
+      <Button layoutX="392.0" layoutY="161.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" text="/" />
+      <Button layoutX="458.0" layoutY="161.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" text="*" />
+      <Button layoutX="520.0" layoutY="161.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="-" />
+      <Button layoutX="520.0" layoutY="201.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="52.0" text="+" />
+      <Button layoutX="520.0" layoutY="275.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="52.0" text="Enter" />
+      <Button layoutX="331.0" layoutY="318.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="119.0" text="0" />
+      <Button layoutX="458.0" layoutY="318.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" text="." />
+      <Line endX="-297.79998779296875" endY="1.4000015258789062" layoutX="541.0" layoutY="106.0" startX="-316.79998779296875" startY="61.399993896484375" />
+      <Line endX="-130.8000030517578" endY="30.400001525878906" layoutX="381.0" layoutY="91.0" startX="-147.3000030517578" startY="77.10710144042969" />
+      <Line endX="-270.0928955078125" endY="49.814208984375" layoutX="521.0" layoutY="119.0" startX="-279.04998779296875" startY="1.6928939819335938" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <TextField layoutX="130.0" layoutY="109.0" prefHeight="93.0" prefWidth="1.0" />
+      <TextArea layoutX="49.0" layoutY="44.0" prefHeight="270.0" prefWidth="242.0" text="game rools:&#10;find the carret as fast as you can.&#10;use 8 to go up&#10;use 2 to go down&#10;use 6 to go right&#10;use 4 to go left&#10;use 7 to go left up&#10;use 9 to go right up&#10;use 3 to go right down&#10;use 1 to go left down&#10;&#10;you can move only in the empty cels&#10;if you find the carret you win !&#10;good luck!" />
+    </children>
+</AnchorPane>

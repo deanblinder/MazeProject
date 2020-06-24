@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="118.0" layoutY="81.0" prefHeight="165.0" prefWidth="330.0" />
+      <TextArea layoutX="-1.0" layoutY="-2.0" prefHeight="400.0" prefWidth="600.0" text="The Developers:&#10;Dean Blinder 305217309&#10;Yzhar Chernov 203842000&#10;&#10;The algorithms of the Maze solving are:&#10;Breath First Search,&#10;Best First Search,&#10;Depth First Search&#10;&#10;">
+         <font>
+            <Font size="20.0" />
+         </font></TextArea>
+   </children>
+</AnchorPane>
